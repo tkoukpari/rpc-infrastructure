@@ -1,5 +1,0 @@
-(library
- (name rpc)
- (libraries core async rpc_server rpc_client)
- (preprocess
-  (pps ppx_jane)))

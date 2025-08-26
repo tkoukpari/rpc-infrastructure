@@ -1,3 +1,8 @@
 open! Core
+open! Async
 
-let () = Command_unix.run Rpc.command
+let command =
+  Command.group ~summary:"rpc"
+    [ ("server", Rpc_server.command); ("client", Rpc_client.command) ]
+
+let () = Command_unix.run command
