@@ -10,4 +10,5 @@ let command =
     (let%map.Command inet_addr = inet_addr and magic_number = magic_number in
      fun () ->
        let inet_addr = Core_unix.Inet_addr.of_string inet_addr in
-       Client.query_server ~inet_addr ~magic_number >>| ok_exn)
+       Client.query_server ~inet_addr ~magic_number >>| ok_exn >>| fun () ->
+       print_endline "done")
